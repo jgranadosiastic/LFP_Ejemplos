@@ -25,12 +25,16 @@ SEPARADORES = [ \n\r\t]
 %% // separador de areas
 
 /* reglas lexicas */
-{SEPARADORES} {/* ignoramos */}
-{LETRA}({LETRA}|{DIGITO})* {lexema = yytext(); return Token.IDENTIFICADOR;}
-{DIGITO}({DIGITO}*|({DIGITO}*[.]{DIGITO}*)) {lexema = yytext(); return Token.NUMERO;}
-"=" {return Token.IGUAL;}
-"+" {return Token.SUMA;}
-"*" {return Token.MULTIPLICACION;}
-"-" {return Token.RESTA;}
-"/" {return Token.DIVISION;}
-. {return Token.ERROR;}
+<YYINITIAL> {
+	{SEPARADORES} {/* ignoramos */}
+	{LETRA}({LETRA}|{DIGITO})* {lexema = yytext(); return Token.IDENTIFICADOR;}
+	{DIGITO}({DIGITO}*|({DIGITO}*[.]{DIGITO}*)) {lexema = yytext(); return Token.NUMERO;}
+	"=" {return Token.IGUAL;}
+	"+" {return Token.SUMA;}
+	"*" {return Token.MULTIPLICACION;}
+	"-" {return Token.RESTA;}
+	"/" {return Token.DIVISION;}
+}
+[^] {lexema = yytext(); return Token.ERROR;}
+
+
