@@ -35,9 +35,9 @@ public class Lexer {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\3\1\3\1\12\1\12\1\3\22\0\1\3\11\0\1\7"+
-    "\1\6\1\0\1\10\1\4\1\11\12\2\3\0\1\5\3\0\32\1"+
-    "\6\0\32\1\12\0\1\12\u1fa2\0\1\12\1\12\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\11\0\2\3\2\0\1\3\22\0\1\3\11\0\1\7\1\6\1\0"+
+    "\1\10\1\4\1\11\12\2\3\0\1\5\3\0\32\1\6\0\32\1"+
+    "\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff95\0";
 
   /** 
    * Translates characters to character classes
@@ -79,8 +79,8 @@ public class Lexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\13\0\26\0\41\0\13\0\13\0\13\0\13"+
-    "\0\13\0\13\0\54";
+    "\0\0\0\12\0\24\0\36\0\12\0\12\0\12\0\12"+
+    "\0\12\0\12\0\50";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[11];
@@ -107,11 +107,11 @@ public class Lexer {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\2\1\6\1\7\1\10"+
-    "\1\11\1\12\15\0\2\3\12\0\1\4\1\0\1\13"+
-    "\10\0\1\13\10\0";
+    "\1\11\1\12\13\0\2\3\11\0\1\4\1\0\1\13"+
+    "\7\0\1\13\7\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[55];
+    int [] result = new int[50];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -255,7 +255,7 @@ public class Lexer {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 88) {
+    while (i < 74) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -606,7 +606,7 @@ public class Lexer {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { return Token.ERROR;
+            { lexema = yytext(); return Token.ERROR;
             }
           case 10: break;
           case 2: 
